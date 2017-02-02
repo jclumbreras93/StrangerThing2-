@@ -24,7 +24,7 @@ public class Configdb {
 	public DataSource dataSource() throws IllegalStateException, PropertyVetoException {
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		dataSource.setDriverClass("com.mysql.jdbc.Driver");
-		dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/Netflix?createDatabaseIfNotExist=true");
+		dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/Netflix?createDatabaseIfNotExist=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8");
 		dataSource.setUser("david");
 		dataSource.setPassword("davidJava");
 		return dataSource;
