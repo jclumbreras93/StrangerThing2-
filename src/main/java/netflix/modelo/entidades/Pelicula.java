@@ -28,12 +28,8 @@ public class Pelicula {
 	@NotEmpty
 	private String caratula;
 
-	@NotNull
-	@NotEmpty
 	private String trailer;
 	
-	@NotNull
-	@NotEmpty
 	private String descripcionPel;
 	
 	@OneToMany(fetch = FetchType.EAGER)
@@ -97,8 +93,4 @@ public class Pelicula {
 	public void setPersonas(Set<Persona> personas) {
 		this.personas = personas;
 	}
-	
-	
-	
-	
 }

@@ -26,7 +26,7 @@ public class Genero {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "pelicula", nullable = false)
+	@JoinColumn(name = "pelicula", nullable = true)
 	private Pelicula pelicula;
 
 	public Long getIdGen() {
@@ -52,6 +52,24 @@ public class Genero {
 	public void setPelicula(Pelicula pelicula) {
 		this.pelicula = pelicula;
 	}
+
+	public Genero(Long idGen, String nombreGen, Pelicula pelicula) {
+		super();
+		this.idGen = idGen;
+		this.nombreGen = nombreGen;
+		this.pelicula = pelicula;
+	}
+
+	public Genero(Long idGen, String nombreGen) {
+		super();
+		this.idGen = idGen;
+		this.nombreGen = nombreGen;
+	}
+
+	public Genero() {
+		super();
+	}
+	
 	
 	
 }
