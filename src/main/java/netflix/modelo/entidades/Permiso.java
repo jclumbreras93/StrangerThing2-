@@ -46,5 +46,22 @@ public class Permiso {
 	public void setPersona(Set<Persona> persona) {
 		this.persona = persona;
 	}
+
+	public Permiso(Long id, String nombre, Set<Persona> persona) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.persona = persona;
+	}
+
+	public Permiso(Long id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+	}
+
+	public Permiso() {
+		super();
+	}
 	
 }

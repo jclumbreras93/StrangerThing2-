@@ -33,8 +33,6 @@ public class Persona implements UserDetails {
 	
 	private String apellidoPer;
 	
-	@NotNull
-	@NotEmpty
 	private String mailPer;
 
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -122,4 +120,26 @@ public class Persona implements UserDetails {
 		return true;
 	}
 
+
+	public Set<Permiso> getPermisos() {
+		return permisos;
+	}
+
+
+	public void setPermisos(Set<Permiso> permisos) {
+		this.permisos = permisos;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
+	
 }
