@@ -140,6 +140,28 @@ public class Persona implements UserDetails {
 		this.password = password;
 	}
 
+
+	public Persona() {
+		super();
+	}
+
+
+	public Persona(Long idPer, String username, String password) {
+		super();
+		this.idPer = idPer;
+		this.username = username;
+		this.password = password;
+	}
+
+
+	public Persona(Long idPer, String username, String password, Set<Permiso> permisos) {
+		super();
+		this.idPer = idPer;
+		this.username = username;
+		this.password = password;
+		this.permisos = permisos;
+	}
+
 	
 	
 }

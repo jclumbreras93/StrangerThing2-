@@ -16,10 +16,10 @@
 	<sec:authorize access="isAnonymous()">
 	<div class="jumbotron">
 	<div class="container">
-		<h1>Registrate en WEBFLIX</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse, vel vitae eligendi tenetur voluptatem pariatur minus libero explicabo numquam voluptates adipisci inventore perspiciatis? Nam minima quibusdam et nesciunt omnis?</p>
+		<h1><spring:message code="views.index.welcomereg" /></h1>
+		<p><spring:message code="views.index.welcomeex" /></p>
 		<p>
-			<a class="btn btn-primary btn-lg" data-toggle="modal" href='#modal-registro'>Registrarse</a>
+			<a class="btn btn-primary btn-lg" data-toggle="modal" href='#modal-registro'><spring:message code="views.menu.register" /></a>
 		</p>
 	</div>
 </div>
@@ -27,17 +27,18 @@
 	</sec:authorize>
 	
 	<sec:authorize access="isAuthenticated()">
-	
 	<sec:authorize access="hasRole('ADMIN')">
 	<h3>Esto solo lo ve el admin</h3>
+	<a class="btn btn-primary btn-lg" data-toggle="modal" href='#modal-registro'><spring:message code="views.menu.register" /></a>
 	</sec:authorize>
+
 	<sec:authorize access="hasRole('USER')">
 	<div class="jumbotron">
 	<div class="container">
-		<h1>Bienvenido a WEBFLIX</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis esse, vel vitae eligendi tenetur voluptatem pariatur minus libero explicabo numquam voluptates adipisci inventore perspiciatis? Nam minima quibusdam et nesciunt omnis?</p>
+		<h1><spring:message code="views.index.welcome" /></h1>
+		<p><spring:message code="views.index.welcomeex" /></p>
 		<p>
-			<a class="btn btn-primary btn-lg" href="<c:url value="/peliculas" />">Visita tu biblioteca de estrenos</a>
+			<a class="btn btn-primary btn-lg" href="<c:url value="/peliculas" />"><spring:message code="views.index.library" /></a>
 		</p>
 	</div>
 </div>
@@ -51,36 +52,43 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Registro</h4>
+					<h4 class="modal-title text-center"><spring:message code="views.menu.register" /></h4>
 				</div>
 				<div class="modal-body">
 				<form action="<c:url value="/login" />" method="POST" role="form">
 
 				<div class="form-group">
-					<label for="">Username</label>
+					<label for=""><spring:message code="views.index.user" /></label>
 					<input name="username" type="text" class="form-control" id="" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for=""><spring:message code="views.index.lastname" /></label>
+					<input name="apellidoPer" type="text" class="form-control" id="" placeholder="Username">
 				</div>
 				
 				<div class="form-group">
-					<label for="">Password</label>
-					<input name="password" type="password" class="form-control" id="" placeholder="Username">
-				</div>
-				<div class="form-group">
-					<label for="">Mail</label>
+					<label for=""><spring:message code="views.index.mail" /></label>
 					<input name="mailPer" type="email" class="form-control" id="" placeholder="Username">
 				</div>
+				
 				<div class="form-group">
-					<label for="">Apellido</label>
-					<input name="apellidoPer" type="text" class="form-control" id="" placeholder="Username">
+					<label for=""><spring:message code="views.index.pass" /></label>
+					<input name="password" type="password" class="form-control" id="" placeholder="Username">
 				</div>
-										
+				
+								
 				<input type="hidden" id="input" name="id" class="form-control" value="">
+				<sec:authorize access="isAnonymous()">
 				<input type="hidden" id="input" name="permisos" class="form-control" value="2">
+				</sec:authorize>
+				<sec:authorize access="hasRole('ADMIN')">
+				<input type="hidden" id="input" name="permisos" class="form-control" value="1">
+				</sec:authorize>
 				<input type="hidden" name="_csrf" id="_csrf" class="form-control" value="${_csrf.token}">
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-					<button type="submit" class="btn btn-primary">Registrarse</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"><spring:message code="views.menu.close" /></button>
+					<button type="submit" class="btn btn-primary"><spring:message code="views.menu.register" /></button>
 				</div>
 			</form>
 			</div>

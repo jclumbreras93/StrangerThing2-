@@ -24,27 +24,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 	crossorigin="anonymous"></script>
-<script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						$('#ingredientes')
-								.DataTable(
-										{
-											"language" : {
-												"url" : "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-											}
-										});
-
-						$(".nav li a").on('click', function() {
-							console.log("Hola");
-							$(this).parent().siblings().removeClass("active");
-							$(this).parent().addClass("active");
-						})
-
-					});
-</script>
-
 </head>
 
 <body>
@@ -52,23 +31,42 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Title</a>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href='<c:url value="/" />'>Home</a></li>
-				<li><a href="<c:url value="/peliculas" />">Peliculas</a></li>
+				<li class="active"><a href='<c:url value="/" />'><spring:message code="views.menu.home" /></a></li>
+				<li><a href="<c:url value="/peliculas" />"><spring:message code="views.menu.movies"/></a></li>
 				
 				<sec:authorize access="hasRole('ADMIN')">
 				<li><a href="<c:url value="/admin" />">Admin</a></li>
 				</sec:authorize>
 				<sec:authorize access="isAnonymous()">
-				<li><a href="<c:url value="/login" />">Login</a></li>
+				<li><a href="<c:url value="/login" />"><spring:message code="views.menu.login" /></a></li>
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 				<li>	
 				<form action="<c:url value="/salir" />" class="navbar-form " method="POST">
 				<input type="hidden" name="_csrf" id="_csrf" value="${_csrf.token}">
-				<button type="submit" class="btn btn-link ">Salir</button>
+				<button type="submit" class="btn btn-link "><spring:message code="views.menu.exit" /></button>
 				</form>
 				<li>
 				</sec:authorize>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+			  
+        <li>
+	        <a href="?lang=es_ES">
+	        	<img alt="spanish" src="https://lipis.github.io/flag-icon-css/flags/4x3/es.svg" height="12px">
+	        </a>
+        </li>
+         <li>
+	        <a href="?lang=pt">
+	        	<img alt="portuguese" src="https://lipis.github.io/flag-icon-css/flags/4x3/pt.svg" height="12px">
+	        </a>
+        </li>
+        <li>
+	        <a href="?lang=en_US">
+	        	<img alt="English" src="https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg" height="12px">
+	        </a>
+        </li>
 			</ul>
 		</div>
 	</div>
