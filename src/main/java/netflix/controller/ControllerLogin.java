@@ -19,7 +19,7 @@ import netflix.modelo.entidades.Permiso;
 import netflix.modelo.entidades.Persona;
 import netflix.modelo.repositorio.RepositorioPermisos;
 import netflix.modelo.repositorio.RepositorioPersona;
-import netflix.modelo.repositorio.ReposotirioGeneros;
+import netflix.modelo.repositorio.RepositorioGeneros;
 
 @Controller
 @RequestMapping("/login")

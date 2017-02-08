@@ -16,14 +16,14 @@ import netflix.modelo.entidades.Permiso;
 import netflix.modelo.entidades.Persona;
 import netflix.modelo.repositorio.RepositorioPermisos;
 import netflix.modelo.repositorio.RepositorioPersona;
-import netflix.modelo.repositorio.ReposotirioGeneros;
+import netflix.modelo.repositorio.RepositorioGeneros;
 
 @Controller
 public class ControllerHome {
 	@Autowired
 	private RepositorioPermisos repoPer;
 	@Autowired
-	private ReposotirioGeneros repogene;
+	private RepositorioGeneros repogene;
 	@Autowired
 	private RepositorioPersona repoUsu;
 	@Autowired

@@ -43,7 +43,7 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
 		.and()
 			.logout()
 					.logoutUrl("/salir")
-					.logoutSuccessUrl("/login?salir=true");
+					.logoutSuccessUrl("/");
 	}
 	
 	@Bean
