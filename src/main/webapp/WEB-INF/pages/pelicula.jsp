@@ -13,8 +13,42 @@
 </head>
 <body>
 	<h3>Peliculas</h3>
+	
+	<div class="row">
+		<div class="col-md-6">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Caratula</th>
+						<th>Nombre</th>
+						<th>Genero</th>
+						<th>Editar</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${peliculas}" var="pelicula">
+						<tr data-id="${pelicula.idPel}">
+							<td><img src="${pelicula.caratula}" alt="${pelicula.caratula}" class="pull-left" style="max-height: 50px; max-width: 50px'"></td>
+							<td><a href='<c:url value="/peliculas/${pelicula.idPel}" />'> ${pelicula.nombrePel}</a></td>
+							<td><c:forEach items="${pelicula.generos}" var="gen">
+				-${gen.nombreGen}
+				</c:forEach></td>
+							<td>
+								<button type="button" class="btn btn-warning btn-editar-pizza">Editar</button>
+							</td>
+							<td>
+								<button type="button" class="btn btn-danger btn-borrar-pizza">Deletar</button>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
 	<sec:authorize access="hasRole('ADMIN')">
-	<a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a>
+	<a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Añadir Pelicula</a>
 <div class="modal fade" id="modal-id">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -31,17 +65,17 @@
 
 <div class="form-group">
 			<label for="">Nombre</label>
-			<input type="text" name="nombrePel" class="form-control" id="" placeholder="Input field">
+			<input type="text" name="nombrePel" class="form-control" id="" placeholder="Nombre">
 		</div>
 
 <div class="form-group">
 			<label for="">caratula</label>
-			<input type="text" name="caratula" class="form-control" id="" placeholder="Input field">
+			<input type="text" name="caratula" class="form-control" id="" placeholder="Caratula">
 		</div>
 
 <div class="form-group">
 			<label for="">Trailer</label>
-			<input type="text" name="trailer" class="form-control" id="" placeholder="Input field">
+			<input type="text" name="trailer" class="form-control" id="" placeholder="Trailer">
 		</div>
 
 <div class="form-group">

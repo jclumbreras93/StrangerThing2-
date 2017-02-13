@@ -65,7 +65,7 @@
 			
 			<ul class="nav navbar-nav navbar-right">  
         <li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Idioma <b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="views.menu.language" /> <b class="caret"></b></a>
         <ul class="dropdown-menu">
         <li>
 	        <a href="?lang=es_ES">
@@ -90,8 +90,15 @@
 </nav>
 	<div>
 		<sitemesh:write property='body' />
-		<spring:url value="/js/ingredientes.js" var="mainJs" />
-		<script src="${mainJs}"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+		    $('.table').DataTable( {
+		        "language": {
+		            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+		        }
+		    } );
+		} );
+		</script>
 
 	</div>
 </body>
